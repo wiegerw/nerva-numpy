@@ -4,8 +4,7 @@
 
 import numpy as np
 from nerva_numpy.activation_functions import Sigmoid
-from nerva_numpy.matrix_operations import column_repeat, dot, elements_sum, hadamard, log, log_sigmoid, reciprocal, \
-    rows_sum
+from nerva_numpy.matrix_operations import column_repeat, dot, elements_sum, hadamard, log, log_sigmoid, reciprocal, rows_sum
 from nerva_numpy.softmax_functions import log_softmax, softmax, stable_log_softmax, stable_softmax
 
 

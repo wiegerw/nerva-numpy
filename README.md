@@ -1,6 +1,6 @@
-# The nerva-jax library
+# The nerva-numpy library
 
-This repository contains an implementation of multilayer perceptrons in JAX.
+This repository contains an implementation of multilayer perceptrons in NumPy.
 It is part of a group of five Python packages that can be installed via pip:
 
 * [nerva-jax](https://pypi.org/project/nerva_jax/) An implementation in [JAX](https://jax.readthedocs.io).
@@ -34,17 +34,17 @@ generalized to more complex neural network architectures.
 
 ## Installation
 
-The code is available as the PyPI package [nerva-jax](https://pypi.org/project/nerva-jax/).
+The code is available as the PyPI package [nerva-numpy](https://pypi.org/project/nerva-numpy/).
 It can be installed using
 
 ```
-pip install nerva-jax
+pip install nerva-numpy
 ```
 
 ## Licensing
 
 The code is available under the [Boost Software License 1.0](http://www.boost.org/LICENSE_1_0.txt).
-A [local copy](https://github.com/wiegerw/nerva-jax/blob/main/LICENSE) is included in the repository.
+A [local copy](https://github.com/wiegerw/nerva-numpy/blob/main/LICENSE) is included in the repository.
 
 ## Using the library
 
