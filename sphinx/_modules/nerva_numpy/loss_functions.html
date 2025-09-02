@@ -438,8 +438,8 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">parse_loss_function</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LossFunction</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a loss function name into a LossFunction instance.</span>
 
-<span class="sd">Supported names: SquaredError, CrossEntropy, SoftmaxCrossEntropy,</span>
-<span class="sd">LogisticCrossEntropy, NegativeLogLikelihood.</span>
+<span class="sd">    Supported names: SquaredError, CrossEntropy, SoftmaxCrossEntropy,</span>
+<span class="sd">    LogisticCrossEntropy, NegativeLogLikelihood.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s2">&quot;SquaredError&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">SquaredErrorLossFunction</span><span class="p">()</span>
