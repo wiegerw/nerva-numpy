@@ -1,0 +1,22 @@
+nerva\_numpy.utilities
+======================
+
+.. automodule:: nerva_numpy.utilities
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      load_dict_from_npz
+      parse_function_call
+      pp
+      set_numpy_options
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      FunctionCall
+      StopWatch
+   

@@ -1,0 +1,22 @@
+nerva\_numpy.optimizers
+=======================
+
+.. automodule:: nerva_numpy.optimizers
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      parse_optimizer
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      CompositeOptimizer
+      GradientDescentOptimizer
+      MomentumOptimizer
+      NesterovOptimizer
+      Optimizer
+   
