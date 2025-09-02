@@ -6,30 +6,27 @@
 
 from pathlib import Path
 
-import torch
+import numpy as np
 
-from nerva_torch.activation_functions import ActivationFunction, \
-    HyperbolicTangentActivation
-from nerva_torch.datasets import create_npz_dataloaders
-from nerva_torch.layers import ActivationLayer, LinearLayer
-from nerva_torch.learning_rate import TimeBasedScheduler
-from nerva_torch.loss_functions import LossFunction
-from nerva_torch.matrix_operations import elements_sum
-from nerva_torch.multilayer_perceptron import MultilayerPerceptron
-from nerva_torch.optimizers import MomentumOptimizer, NesterovOptimizer, CompositeOptimizer
-from nerva_torch.training import sgd
-from nerva_torch.weight_initializers import set_bias_to_zero, set_weights_xavier_normalized
-
-Matrix = torch.Tensor
+from nerva_numpy.activation_functions import ActivationFunction, HyperbolicTangentActivation
+from nerva_numpy.datasets import create_npz_dataloaders
+from nerva_numpy.layers import ActivationLayer, LinearLayer
+from nerva_numpy.learning_rate import TimeBasedScheduler
+from nerva_numpy.loss_functions import LossFunction
+from nerva_numpy.matrix_operations import elements_sum, Matrix
+from nerva_numpy.multilayer_perceptron import MultilayerPerceptron
+from nerva_numpy.optimizers import MomentumOptimizer, NesterovOptimizer, CompositeOptimizer
+from nerva_numpy.training import stochastic_gradient_descent
+from nerva_numpy.weight_initializers import set_bias_to_zero, set_weights_xavier_normalized
 
 
 # Define a custom activation function
 def Elu(alpha):
-    return lambda X: torch.where(X > 0, X, alpha * (torch.exp(X) - 1))
+    return lambda X: np.where(X > 0, X, alpha * (np.exp(X) - 1))
 
 
 def Elu_gradient(alpha):
-    return lambda X: torch.where(X > 0, torch.ones_like(X), alpha * torch.exp(X))
+    return lambda X: np.where(X > 0, np.ones_like(X), alpha * np.exp(X))
 
 
 class ELUActivation(ActivationFunction):
@@ -46,8 +43,8 @@ class ELUActivation(ActivationFunction):
 # Define a custom weight initializer
 def set_weights_lecun(W: Matrix):
     K, D = W.shape
-    stddev = torch.sqrt(torch.tensor(1.0 / D))
-    W.data = torch.randn(K, D) * stddev
+    stddev = np.sqrt(1.0 / D)
+    W[:] = np.random.randn(K, D) * stddev
 
 
 # Define a custom loss function
@@ -56,7 +53,7 @@ class AbsoluteErrorLossFunction(LossFunction):
         return elements_sum(abs(Y - T))
 
     def gradient(self, Y: Matrix, T: Matrix) -> Matrix:
-        return torch.sign(Y - T)
+        return np.sign(Y - T)
 
 
 def main():
@@ -93,9 +90,9 @@ def main():
 
     learning_rate = TimeBasedScheduler(lr=0.1, decay=0.09)
 
-    epochs = 100
+    epochs = 5
 
-    sgd(M, epochs, loss, learning_rate, train_loader, test_loader)
+    stochastic_gradient_descent(M, epochs, loss, learning_rate, train_loader, test_loader)
 
 
 if __name__ == '__main__':

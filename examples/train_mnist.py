@@ -6,14 +6,14 @@
 
 from pathlib import Path
 
-from nerva_torch.activation_functions import ReLUActivation
-from nerva_torch.datasets import create_npz_dataloaders, DataLoader
-from nerva_torch.layers import ActivationLayer, LinearLayer
-from nerva_torch.learning_rate import ConstantScheduler, LearningRateScheduler
-from nerva_torch.loss_functions import SoftmaxCrossEntropyLossFunction, LossFunction
-from nerva_torch.multilayer_perceptron import MultilayerPerceptron
-from nerva_torch.training import compute_statistics
-from nerva_torch.utilities import StopWatch
+from nerva_numpy.activation_functions import ReLUActivation
+from nerva_numpy.datasets import create_npz_dataloaders, DataLoader
+from nerva_numpy.layers import ActivationLayer, LinearLayer
+from nerva_numpy.learning_rate import ConstantScheduler, LearningRateScheduler
+from nerva_numpy.loss_functions import SoftmaxCrossEntropyLossFunction, LossFunction
+from nerva_numpy.multilayer_perceptron import MultilayerPerceptron
+from nerva_numpy.training import compute_statistics
+from nerva_numpy.utilities import StopWatch
 
 
 # The Core Training Loop (Mini-batch SGD)
@@ -94,7 +94,7 @@ def main():
     learning_rate = ConstantScheduler(0.01)
 
     # Define the number of training epochs
-    epochs = 10
+    epochs = 5
 
     sgd(M, epochs, loss, learning_rate, train_loader, test_loader)
 

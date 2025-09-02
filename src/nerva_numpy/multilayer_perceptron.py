@@ -2,13 +2,14 @@
 # Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE or http://www.boost.org/LICENSE_1_0.txt)
 
+"""A simple multilayer perceptron (MLP) class."""
+
 from typing import List
 
 import numpy as np
 from nerva_numpy.layers import BatchNormalizationLayer, LinearLayer, parse_linear_layer
+from nerva_numpy.matrix_operations import Matrix
 from nerva_numpy.utilities import load_dict_from_npz, pp
-
-Matrix = np.ndarray
 
 
 class MultilayerPerceptron(object):
@@ -65,6 +66,13 @@ def parse_multilayer_perceptron(layer_specifications: List[str],
                                 linear_layer_weight_initializers: List[str]
                                ) -> MultilayerPerceptron:
 
+    """Construct an MLP from textual layer specs and size/optimizer configs.
+
+layer_specifications: e.g. ["ReLU", "BatchNormalization", "LogSoftmax"]
+linear_layer_sizes: e.g. [784, 128, 10] for two linear layers
+optimizers: one per layer (including BatchNormalization)
+linear_layer_weight_initializers: one per linear layer
+    """
     assert len(linear_layer_weight_initializers) == len(linear_layer_sizes) - 1
     layers = []
 
