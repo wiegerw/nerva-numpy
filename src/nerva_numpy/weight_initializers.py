@@ -20,21 +20,11 @@ def set_weights_xavier(W: Matrix):
     W[:] = np.random.randn(K, D) * xavier_stddev
 
 
-def set_bias_xavier(b: Matrix):
-    """Set bias to zero (Xavier scheme for bias)."""
-    set_bias_to_zero(b)
-
-
 def set_weights_xavier_normalized(W: Matrix):
     """Initialize weights using normalized Xavier initialization."""
     K, D = W.shape
     xavier_stddev = np.sqrt(2 / (K + D))
     W[:] = np.random.randn(K, D) * xavier_stddev
-
-
-def set_bias_xavier_normalized(b: Matrix):
-    """Set bias to zero (normalized Xavier scheme)."""
-    set_bias_to_zero(b)
 
 
 def set_weights_he(W: Matrix):
@@ -45,21 +35,16 @@ def set_weights_he(W: Matrix):
     W[:] = random_matrix * he_stddev
 
 
-def set_bias_he(b: Matrix):
-    """Set bias to zero (He scheme for bias)."""
-    set_bias_to_zero(b)
-
-
 def set_layer_weights(layer, text: str):
     """Initialize a layer's parameters according to a named scheme."""
     if text == 'Xavier':
         set_weights_xavier(layer.W)
-        set_bias_xavier(layer.b)
+        set_bias_to_zero(layer.b)
     elif text == 'XavierNormalized':
         set_weights_xavier_normalized(layer.W)
-        set_bias_xavier_normalized(layer.b)
+        set_bias_to_zero(layer.b)
     elif text == 'He':
         set_weights_he(layer.W)
-        set_bias_he(layer.b)
+        set_bias_to_zero(layer.b)
     else:
         raise RuntimeError(f'Could not parse weight initializer "{text}"')
