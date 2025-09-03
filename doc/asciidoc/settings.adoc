@@ -1,8 +1,4 @@
-ifndef::python-root[:python-root: ../..]
-ifndef::package[:package: nerva_numpy]
-ifndef::package-folder[:package-folder: nerva-numpy]
 ifndef::library[:library: pass:q[_Nerva-Numpy Python Library_]]
 ifndef::mlptool[:mlptool: mlp.py]
 ifndef::module[:module: nerva_numpy]
-ifndef::root[:root: ../../..]
-:no-cpp:
+:repo-url: https://github.com/wiegerw/nerva-numpy/blob/main
