@@ -35,7 +35,6 @@ def generate_synthetic_dataset(num_train_samples, num_test_samples, num_features
     Ttrain = T[train_batch].astype(np.int64)
     Xtest = X[test_batch].astype(np.float32)
     Ttest = T[test_batch].astype(np.int64)
-
     return Xtrain, Ttrain, Xtest, Ttest
 
 

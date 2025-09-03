@@ -62,7 +62,7 @@ def almost_equal(a: Union[float, int, np.ndarray],
 def all_close(X1: np.ndarray, X2: np.ndarray,
               rtol: float = 1e-6, atol: float = 1e-6) -> bool:
     """Compare two NumPy arrays approximately. Returns True if all elements are close."""
-    return np.allclose(X1, X2, rtol=rtol, atol=atol)
+    return bool(np.allclose(X1, X2, rtol=rtol, atol=atol))
 
 
 def all_true(mask: np.ndarray) -> bool:
@@ -111,6 +111,13 @@ def assert_tensors_are_close(name1: str, X1: np.ndarray,
         raise AssertionError(
             f"Arrays {name1} and {name2} are not close. Max diff: {max_diff:.8f}"
         )
+
+
+def as_float(x: np.ndarray) -> float:
+    """Convert a 0-d NumPy array to a Python float."""
+    if x.ndim != 0:
+        raise ValueError("Input must be 0-dimensional")
+    return float(x.item())
 
 # ------------------------
 # Test generation

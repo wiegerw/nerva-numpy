@@ -11,9 +11,9 @@ from nerva_numpy.datasets import create_npz_dataloaders
 from nerva_numpy.layers import ActivationLayer, LinearLayer
 from nerva_numpy.learning_rate import TimeBasedScheduler
 from nerva_numpy.loss_functions import SoftmaxCrossEntropyLossFunction
-from nerva_numpy.multilayer_perceptron import MultilayerPerceptron
+from nerva_numpy.multilayer_perceptron import MultilayerPerceptron, parse_multilayer_perceptron
 from nerva_numpy.optimizers import MomentumOptimizer, NesterovOptimizer, CompositeOptimizer
-from nerva_numpy.training import sgd
+from nerva_numpy.training import stochastic_gradient_descent
 from nerva_numpy.weight_initializers import set_bias_to_zero, set_weights_xavier_normalized
 
 

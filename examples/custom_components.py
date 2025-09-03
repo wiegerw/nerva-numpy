@@ -19,8 +19,10 @@ from nerva_numpy.optimizers import MomentumOptimizer, NesterovOptimizer, Composi
 from nerva_numpy.training import stochastic_gradient_descent
 from nerva_numpy.weight_initializers import set_bias_to_zero, set_weights_xavier_normalized
 
+# ------------------------
+# Custom activation function
+# ------------------------
 
-# Define a custom activation function
 def Elu(alpha):
     return lambda X: np.where(X > 0, X, alpha * (np.exp(X) - 1))
 
@@ -40,14 +42,20 @@ class ELUActivation(ActivationFunction):
         return Elu_gradient(self.alpha)(X)
 
 
-# Define a custom weight initializer
+# ------------------------
+# Custom weight initializer
+# ------------------------
+
 def set_weights_lecun(W: Matrix):
     K, D = W.shape
     stddev = np.sqrt(1.0 / D)
     W[:] = np.random.randn(K, D) * stddev
 
 
-# Define a custom loss function
+# ------------------------
+# Custom loss function
+# ------------------------
+
 class AbsoluteErrorLossFunction(LossFunction):
     def __call__(self, Y: Matrix, T: Matrix) -> float:
         return elements_sum(abs(Y - T))
