@@ -121,10 +121,12 @@ def parse_function_call(text: str) -> FunctionCall:
 
 
 def load_dict_from_npz(filename: str) -> Dict[str, Matrix]:
-    """
-    Loads a dictionary from a file in .npz format
-    :param filename: a file name
-    :return: a dictionary
-    """
-
+    """Loads a dictionary from a file in .npz format"""
     return dict(np.load(filename, allow_pickle=True))
+
+
+def save_dict_to_npz(filename: str, data: Dict[str, np.ndarray]):
+    """Saves a dictionary of NumPy arrays to a compressed .npz file."""
+    if not filename.endswith(".npz"):
+        filename += ".npz"
+    np.savez_compressed(filename, **data)
