@@ -10,7 +10,7 @@ from nerva_numpy.activation_functions import ReLUActivation
 from nerva_numpy.datasets import create_npz_dataloaders, DataLoader
 from nerva_numpy.layers import ActivationLayer, LinearLayer
 from nerva_numpy.learning_rate import ConstantScheduler, LearningRateScheduler
-from nerva_numpy.loss_functions import SoftmaxCrossEntropyLossFunction, LossFunction
+from nerva_numpy.loss_functions import LossFunction, StableSoftmaxCrossEntropyLossFunction
 from nerva_numpy.multilayer_perceptron import MultilayerPerceptron
 from nerva_numpy.training import compute_statistics
 from nerva_numpy.utilities import StopWatch
@@ -89,7 +89,7 @@ def main():
         layer.set_weights('Xavier')
 
     # Define the loss function
-    loss = SoftmaxCrossEntropyLossFunction()
+    loss = StableSoftmaxCrossEntropyLossFunction()
 
     # Define the learning rate scheduler (e.g., a constant learning rate of 0.01)
     learning_rate = ConstantScheduler(0.01)

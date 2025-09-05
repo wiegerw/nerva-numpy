@@ -10,7 +10,7 @@ from nerva_numpy.activation_functions import ReLUActivation, LeakyReLUActivation
 from nerva_numpy.datasets import create_npz_dataloaders
 from nerva_numpy.layers import ActivationLayer, LinearLayer
 from nerva_numpy.learning_rate import TimeBasedScheduler
-from nerva_numpy.loss_functions import SoftmaxCrossEntropyLossFunction
+from nerva_numpy.loss_functions import StableSoftmaxCrossEntropyLossFunction
 from nerva_numpy.multilayer_perceptron import MultilayerPerceptron, parse_multilayer_perceptron
 from nerva_numpy.optimizers import MomentumOptimizer, NesterovOptimizer, CompositeOptimizer
 from nerva_numpy.training import stochastic_gradient_descent
@@ -66,7 +66,7 @@ def main():
 
     train_loader, test_loader = create_npz_dataloaders("../data/mnist-flattened.npz", batch_size=100)
 
-    loss = SoftmaxCrossEntropyLossFunction()
+    loss = StableSoftmaxCrossEntropyLossFunction()
     learning_rate = TimeBasedScheduler(lr=0.1, decay=0.09)
     epochs = 5
 

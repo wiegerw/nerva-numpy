@@ -19,9 +19,11 @@ from nerva_numpy.optimizers import MomentumOptimizer, NesterovOptimizer, Composi
 from nerva_numpy.training import stochastic_gradient_descent
 from nerva_numpy.weight_initializers import set_bias_to_zero, set_weights_xavier_normalized
 
+
 # ------------------------
 # Custom activation function
 # ------------------------
+
 
 def Elu(alpha):
     return lambda X: np.where(X > 0, X, alpha * (np.exp(X) - 1))
