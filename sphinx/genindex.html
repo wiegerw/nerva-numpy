@@ -198,9 +198,11 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="_autosummary/nerva_numpy.datasets.html#nerva_numpy.datasets.DataLoader">DataLoader (in module nerva_numpy.datasets)</a>
+      <li><a href="_autosummary/nerva_numpy.datasets.html#nerva_numpy.datasets.DataLoader">DataLoader (class in nerva_numpy.datasets)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.SGDOptions.debug">debug (nerva_numpy.training.SGDOptions attribute)</a>
+      <li><a href="_autosummary/nerva_numpy.datasets.html#nerva_numpy.datasets.DataLoader.dataset_size">dataset_size (nerva_numpy.datasets.DataLoader property)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.TrainOptions.debug">debug (nerva_numpy.training.TrainOptions attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -414,8 +416,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.datasets.html#nerva_numpy.datasets.max_">max_() (in module nerva_numpy.datasets)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.datasets.html#nerva_numpy.datasets.MemoryDataLoader">MemoryDataLoader (class in nerva_numpy.datasets)</a>
-</li>
       <li>
     module
 
@@ -608,17 +608,25 @@
 </li>
       <li><a href="_autosummary/nerva_numpy.multilayer_perceptron.html#nerva_numpy.multilayer_perceptron.parse_multilayer_perceptron">parse_multilayer_perceptron() (in module nerva_numpy.multilayer_perceptron)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.optimizers.html#nerva_numpy.optimizers.parse_optimizer">parse_optimizer() (in module nerva_numpy.optimizers)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.utilities.html#nerva_numpy.utilities.pp">pp() (in module nerva_numpy.utilities)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.utilities.html#nerva_numpy.utilities.pp_numpy">pp_numpy() (in module nerva_numpy.utilities)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.print_batch_debug_info">print_batch_debug_info() (in module nerva_numpy.training)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.print_epoch">print_epoch() (in module nerva_numpy.training)</a>
+      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.TrainOptions.print_digits">print_digits (nerva_numpy.training.TrainOptions attribute)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.print_epoch_footer">print_epoch_footer() (in module nerva_numpy.training)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.print_epoch_header">print_epoch_header() (in module nerva_numpy.training)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.print_epoch_line">print_epoch_line() (in module nerva_numpy.training)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.TrainOptions.print_statistics">print_statistics (nerva_numpy.training.TrainOptions attribute)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.product">product() (in module nerva_numpy.matrix_operations)</a>
 </li>
@@ -660,7 +668,11 @@
 </li>
       <li><a href="_autosummary/nerva_numpy.utilities.html#nerva_numpy.utilities.StopWatch.seconds">seconds() (nerva_numpy.utilities.StopWatch method)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_bias_to_zero">set_bias_to_zero() (in module nerva_numpy.weight_initializers)</a>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_bias_normal">set_bias_normal() (in module nerva_numpy.weight_initializers)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_bias_uniform">set_bias_uniform() (in module nerva_numpy.weight_initializers)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_bias_zero">set_bias_zero() (in module nerva_numpy.weight_initializers)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_layer_weights">set_layer_weights() (in module nerva_numpy.weight_initializers)</a>
 </li>
@@ -676,13 +688,19 @@
       </ul></li>
       <li><a href="_autosummary/nerva_numpy.layers.html#nerva_numpy.layers.LinearLayer.set_weights">set_weights() (nerva_numpy.layers.LinearLayer method)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_he">set_weights_he() (in module nerva_numpy.weight_initializers)</a>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_he_normal">set_weights_he_normal() (in module nerva_numpy.weight_initializers)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_xavier">set_weights_xavier() (in module nerva_numpy.weight_initializers)</a>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_he_uniform">set_weights_he_uniform() (in module nerva_numpy.weight_initializers)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_xavier_normalized">set_weights_xavier_normalized() (in module nerva_numpy.weight_initializers)</a>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_normal">set_weights_normal() (in module nerva_numpy.weight_initializers)</a>
 </li>
-      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.SGDOptions">SGDOptions (class in nerva_numpy.training)</a>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_uniform">set_weights_uniform() (in module nerva_numpy.weight_initializers)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_xavier_normal">set_weights_xavier_normal() (in module nerva_numpy.weight_initializers)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_xavier_uniform">set_weights_xavier_uniform() (in module nerva_numpy.weight_initializers)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_zero">set_weights_zero() (in module nerva_numpy.weight_initializers)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.activation_functions.html#nerva_numpy.activation_functions.Sigmoid">Sigmoid() (in module nerva_numpy.activation_functions)</a>
 </li>
@@ -706,14 +724,14 @@
 </li>
       <li><a href="_autosummary/nerva_numpy.softmax_functions.html#nerva_numpy.softmax_functions.softmax_jacobian">softmax_jacobian() (in module nerva_numpy.softmax_functions)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.loss_functions.html#nerva_numpy.loss_functions.SoftmaxCrossEntropyLossFunction">SoftmaxCrossEntropyLossFunction (class in nerva_numpy.loss_functions)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.softmax_functions.html#nerva_numpy.softmax_functions.SoftmaxFunction">SoftmaxFunction (class in nerva_numpy.softmax_functions)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.layers.html#nerva_numpy.layers.SoftmaxLayer">SoftmaxLayer (class in nerva_numpy.layers)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.sqrt">sqrt() (in module nerva_numpy.matrix_operations)</a>
 </li>
       <li><a href="_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.square">square() (in module nerva_numpy.matrix_operations)</a>
@@ -778,11 +796,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.learning_rate.html#nerva_numpy.learning_rate.TimeBasedScheduler">TimeBasedScheduler (class in nerva_numpy.learning_rate)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.datasets.html#nerva_numpy.datasets.to_one_hot">to_one_hot() (in module nerva_numpy.datasets)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.train">train() (in module nerva_numpy.training)</a>
+</li>
+      <li><a href="_autosummary/nerva_numpy.training.html#nerva_numpy.training.TrainOptions">TrainOptions (class in nerva_numpy.training)</a>
 </li>
   </ul></td>
 </tr></table>

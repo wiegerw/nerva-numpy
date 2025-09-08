@@ -19,5 +19,4 @@ nerva\_numpy.datasets
    .. autosummary::
    
       DataLoader
-      MemoryDataLoader
    
