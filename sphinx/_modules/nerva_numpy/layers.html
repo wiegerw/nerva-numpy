@@ -323,7 +323,7 @@
 <div class="viewcode-block" id="SoftmaxLayer.backpropagate">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.layers.html#nerva_numpy.layers.SoftmaxLayer.backpropagate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">backpropagate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">DY</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">K</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
         <span class="n">W</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span>
 
@@ -367,7 +367,7 @@
 <div class="viewcode-block" id="LogSoftmaxLayer.backpropagate">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.layers.html#nerva_numpy.layers.LogSoftmaxLayer.backpropagate">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">backpropagate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">DY</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">K</span><span class="p">,</span> <span class="n">N</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">N</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">X</span>
         <span class="n">W</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span>
         <span class="n">Z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span>
@@ -474,8 +474,8 @@
                       <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Layer</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a textual layer spec and create a configured Layer instance.</span>
 
-<span class="sd">Supports Linear, Softmax, LogSoftmax, activation names (e.g. ReLU), and</span>
-<span class="sd">SReLU(...). The optimizer and weight initializer are applied.</span>
+<span class="sd">    Supports Linear, Softmax, LogSoftmax, activation names (e.g. ReLU), and</span>
+<span class="sd">    SReLU(...). The optimizer and weight initializer are applied.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="s1">&#39;Linear&#39;</span><span class="p">:</span>
         <span class="n">layer</span> <span class="o">=</span> <span class="n">LinearLayer</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
