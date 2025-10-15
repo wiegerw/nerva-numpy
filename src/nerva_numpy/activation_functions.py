@@ -13,13 +13,16 @@ import numpy as np
 from nerva_numpy.utilities import parse_function_call
 from nerva_numpy.matrix_operations import Matrix
 
+# Naming conventions:
+# - lowercase functions operate on real numbers
+# - uppercase functions operate on matrices
 
-def Relu(X: Matrix):
+def Relu(X: Matrix) -> Matrix:
     """Rectified linear unit activation: max(0, X)."""
     return np.maximum(0, X)
 
 
-def Relu_gradient(X: Matrix):
+def Relu_gradient(X: Matrix) -> Matrix:
     """Gradient of ReLU: 1 where X > 0, 0 elsewhere."""
     return np.where(X > 0, 1, 0)
 
@@ -44,22 +47,22 @@ def All_relu_gradient(alpha):
     return lambda X: np.where(X < 0, alpha, 1)
 
 
-def Hyperbolic_tangent(X: Matrix):
+def Hyperbolic_tangent(X: Matrix) -> Matrix:
     """Hyperbolic tangent activation."""
     return np.tanh(X)
 
 
-def Hyperbolic_tangent_gradient(X: Matrix):
+def Hyperbolic_tangent_gradient(X: Matrix) -> Matrix:
     """Gradient of tanh: 1 - tanh²(X)."""
     return 1 - np.tanh(X) ** 2
 
 
-def Sigmoid(X: Matrix):
+def Sigmoid(X: Matrix) -> Matrix:
     """Sigmoid activation: 1 / (1 + exp(-X))."""
     return 1 / (1 + np.exp(-X))
 
 
-def Sigmoid_gradient(X: Matrix):
+def Sigmoid_gradient(X: Matrix) -> Matrix:
     """Gradient of sigmoid: σ(X) * (1 - σ(X))."""
     return Sigmoid(X) * (1 - Sigmoid(X))
 
@@ -196,9 +199,9 @@ class SReLUActivation(ActivationFunction):
 def parse_activation(text: str) -> ActivationFunction:
     """Parse a textual activation specification into an ActivationFunction.
 
-Examples include "ReLU", "Sigmoid", "HyperbolicTangent",
-"AllReLU(alpha=0.1)", "LeakyReLU(alpha=0.1)", and
-"SReLU(al=0, tl=0, ar=0, tr=1)".
+    Examples include "ReLU", "Sigmoid", "HyperbolicTangent",
+    "AllReLU(alpha=0.1)", "LeakyReLU(alpha=0.1)", and
+    "SReLU(al=0, tl=0, ar=0, tr=1)".
     """
     try:
         func = parse_function_call(text)

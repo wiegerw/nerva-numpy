@@ -30,6 +30,12 @@ class CompositeOptimizer(Optimizer):
         for optimizer in self.optimizers:
             optimizer.update(eta)
 
+    def __repr__(self) -> str:
+        optimizers_str = ", ".join(str(opt) for opt in self.optimizers)
+        return f"CompositeOptimizer([{optimizers_str}])"
+
+    __str__ = __repr__
+
 
 class GradientDescentOptimizer(Optimizer):
     """Standard gradient descent optimizer: x -= eta * grad."""
@@ -84,8 +90,8 @@ class NesterovOptimizer(MomentumOptimizer):
 def parse_optimizer(text: str) -> Callable[[Any, Any], Optimizer]:
     """Parse a textual optimizer specification into a factory function.
 
-Returns a callable that takes (x, Dx) and produces an Optimizer.
-Supported names: GradientDescent, Momentum(mu=...), Nesterov(mu=...).
+    Returns a callable that takes (x, Dx) and produces an Optimizer.
+    Supported names: GradientDescent, Momentum(mu=...), Nesterov(mu=...).
     """
     try:
         func = parse_function_call(text)

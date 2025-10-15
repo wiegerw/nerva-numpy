@@ -183,7 +183,7 @@ class SoftmaxLayer(LinearLayer):
         return Y
 
     def backpropagate(self, Y: Matrix, DY: Matrix) -> None:
-        K, N = self.Z.shape
+        N, K = self.Z.shape
         X = self.X
         W = self.W
 
@@ -218,7 +218,7 @@ class LogSoftmaxLayer(LinearLayer):
         return Y
 
     def backpropagate(self, Y: Matrix, DY: Matrix) -> None:
-        K, N = self.Z.shape
+        N, K = self.Z.shape
         X = self.X
         W = self.W
         Z = self.Z
@@ -303,8 +303,8 @@ def parse_linear_layer(text: str,
                       ) -> Layer:
     """Parse a textual layer spec and create a configured Layer instance.
 
-Supports Linear, Softmax, LogSoftmax, activation names (e.g. ReLU), and
-SReLU(...). The optimizer and weight initializer are applied.
+    Supports Linear, Softmax, LogSoftmax, activation names (e.g. ReLU), and
+    SReLU(...). The optimizer and weight initializer are applied.
     """
     if text == 'Linear':
         layer = LinearLayer(D, K)
