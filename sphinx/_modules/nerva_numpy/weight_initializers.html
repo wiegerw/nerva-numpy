@@ -95,40 +95,40 @@
 <div class="viewcode-block" id="set_bias_zero">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_bias_zero">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">set_bias_zero</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set all bias values to zero.&quot;&quot;&quot;</span>
-    <span class="n">b</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">0.0</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set all bias values to zero (float32).&quot;&quot;&quot;</span>
+    <span class="n">b</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="set_bias_uniform">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_bias_uniform">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">set_bias_uniform</span><span class="p">(</span><span class="n">b_</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Uniform initialization within [a, b).&quot;&quot;&quot;</span>
-    <span class="n">b_</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">b_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Uniform initialization within [a, b) as float32.&quot;&quot;&quot;</span>
+    <span class="n">b_</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">b_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="set_bias_normal">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_bias_normal">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">set_bias_normal</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normal (Gaussian) initialization with given mean and std.&quot;&quot;&quot;</span>
-    <span class="n">b</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normal (Gaussian) initialization with given mean and std (float32).&quot;&quot;&quot;</span>
+    <span class="n">b</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="set_weights_uniform">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_uniform">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">set_weights_uniform</span><span class="p">(</span><span class="n">W</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Uniform initialization within [a, b).&quot;&quot;&quot;</span>
-    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Uniform initialization within [a, b) as float32.&quot;&quot;&quot;</span>
+    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="set_weights_normal">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.weight_initializers.html#nerva_numpy.weight_initializers.set_weights_normal">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">set_weights_normal</span><span class="p">(</span><span class="n">W</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normal (Gaussian) initialization with given mean and std.&quot;&quot;&quot;</span>
-    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normal (Gaussian) initialization with given mean and std (float32).&quot;&quot;&quot;</span>
+    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
@@ -142,7 +142,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">K</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">limit</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">6.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="n">K</span><span class="p">))</span>  <span class="c1"># sqrt(6 / (fan_in + fan_out))</span>
-    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">limit</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">limit</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
@@ -156,7 +156,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">K</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">std</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="n">K</span><span class="p">))</span>  <span class="c1"># sqrt(2 / (fan_in + fan_out))</span>
-    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
@@ -170,7 +170,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">K</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">std</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="n">D</span><span class="p">)</span>  <span class="c1"># sqrt(2 / fan_in)</span>
-    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
@@ -184,7 +184,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">K</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">limit</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">6.0</span> <span class="o">/</span> <span class="n">D</span><span class="p">)</span>  <span class="c1"># sqrt(6 / fan_in)</span>
-    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">limit</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+    <span class="n">W</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">limit</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
 
