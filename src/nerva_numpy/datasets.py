@@ -18,7 +18,7 @@ from nerva_numpy.utilities import load_dict_from_npz
 
 def to_one_hot(x: Matrix, num_classes: int):
     """Convert class index tensor to one-hot matrix with num_classes columns."""
-    one_hot = np.zeros((len(x), num_classes), dtype=float)
+    one_hot = np.zeros((len(x), num_classes), dtype=np.float32)
     one_hot[np.arange(len(x)), x] = 1
     return one_hot
 
@@ -110,6 +110,6 @@ def create_npz_dataloaders(filename: str, batch_size: int=True) -> Tuple[DataLoa
     # Determine number of classes robustly to avoid underestimating when some classes are absent
     num_classes = infer_num_classes(Ttrain, Ttest)
 
-    train_loader = DataLoader(Xtrain, Ttrain, batch_size, num_classes=num_classes)
-    test_loader = DataLoader(Xtest, Ttest, batch_size, num_classes=num_classes)
+    train_loader = DataLoader(np.asarray(Xtrain, dtype=np.float32), Ttrain, batch_size, num_classes=num_classes)
+    test_loader = DataLoader(np.asarray(Xtest, dtype=np.float32), Ttest, batch_size, num_classes=num_classes)
     return train_loader, test_loader

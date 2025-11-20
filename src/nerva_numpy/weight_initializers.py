@@ -11,28 +11,28 @@ from nerva_numpy.utilities import parse_function_call
 
 
 def set_bias_zero(b: Matrix):
-    """Set all bias values to zero."""
-    b[:] = 0.0
+    """Set all bias values to zero (float32)."""
+    b[:] = np.zeros_like(b, dtype=np.float32)
 
 
 def set_bias_uniform(b_: Matrix, a: float = 0.0, b: float = 1.0):
-    """Uniform initialization within [a, b)."""
-    b_[:] = np.random.uniform(a, b, size=b_.shape)
+    """Uniform initialization within [a, b) as float32."""
+    b_[:] = np.random.uniform(a, b, size=b_.shape).astype(np.float32)
 
 
 def set_bias_normal(b: Matrix, mean: float = 0.0, std: float = 1.0):
-    """Normal (Gaussian) initialization with given mean and std."""
-    b[:] = np.random.normal(mean, std, size=b.shape)
+    """Normal (Gaussian) initialization with given mean and std (float32)."""
+    b[:] = np.random.normal(mean, std, size=b.shape).astype(np.float32)
 
 
 def set_weights_uniform(W: Matrix, a: float = 0.0, b: float = 1.0):
-    """Uniform initialization within [a, b)."""
-    W[:] = np.random.uniform(a, b, size=W.shape)
+    """Uniform initialization within [a, b) as float32."""
+    W[:] = np.random.uniform(a, b, size=W.shape).astype(np.float32)
 
 
 def set_weights_normal(W: Matrix, mean: float = 0.0, std: float = 1.0):
-    """Normal (Gaussian) initialization with given mean and std."""
-    W[:] = np.random.normal(mean, std, size=W.shape)
+    """Normal (Gaussian) initialization with given mean and std (float32)."""
+    W[:] = np.random.normal(mean, std, size=W.shape).astype(np.float32)
 
 
 def set_weights_xavier_uniform(W: Matrix):
@@ -43,7 +43,7 @@ def set_weights_xavier_uniform(W: Matrix):
     """
     K, D = W.shape
     limit = math.sqrt(6.0 / (D + K))  # sqrt(6 / (fan_in + fan_out))
-    W[:] = np.random.uniform(-limit, limit, size=W.shape)
+    W[:] = np.random.uniform(-limit, limit, size=W.shape).astype(np.float32)
 
 
 def set_weights_xavier_normal(W: Matrix):
@@ -54,7 +54,7 @@ def set_weights_xavier_normal(W: Matrix):
     """
     K, D = W.shape
     std = math.sqrt(2.0 / (D + K))  # sqrt(2 / (fan_in + fan_out))
-    W[:] = np.random.normal(0.0, std, size=W.shape)
+    W[:] = np.random.normal(0.0, std, size=W.shape).astype(np.float32)
 
 
 def set_weights_he_normal(W: Matrix):
@@ -65,7 +65,7 @@ def set_weights_he_normal(W: Matrix):
     """
     K, D = W.shape
     std = math.sqrt(2.0 / D)  # sqrt(2 / fan_in)
-    W[:] = np.random.normal(0.0, std, size=W.shape)
+    W[:] = np.random.normal(0.0, std, size=W.shape).astype(np.float32)
 
 
 def set_weights_he_uniform(W: Matrix):
@@ -76,7 +76,7 @@ def set_weights_he_uniform(W: Matrix):
     """
     K, D = W.shape
     limit = math.sqrt(6.0 / D)  # sqrt(6 / fan_in)
-    W[:] = np.random.uniform(-limit, limit, size=W.shape)
+    W[:] = np.random.uniform(-limit, limit, size=W.shape).astype(np.float32)
 
 
 def set_weights_zero(W: Matrix):

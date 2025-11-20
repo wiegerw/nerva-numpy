@@ -52,21 +52,21 @@ def zeros(m: int, n=None) -> Matrix:
     """
     Returns an mxn matrix with all elements equal to 0.
     """
-    return np.zeros((m, n)) if n else np.zeros(m)
+    return (np.zeros((m, n), dtype=np.float32) if n is not None else np.zeros(m, dtype=np.float32))
 
 
 def ones(m: int, n=None) -> Matrix:
     """
     Returns an mxn matrix with all elements equal to 1.
     """
-    return np.ones((m, n)) if n else np.ones(m)
+    return (np.ones((m, n), dtype=np.float32) if n is not None else np.ones(m, dtype=np.float32))
 
 
 def identity(n: int) -> Matrix:
     """
     Returns the nxn identity matrix.
     """
-    return np.eye(n)
+    return np.eye(n, dtype=np.float32)
 
 
 def product(X: Matrix, Y: Matrix) -> Matrix:
@@ -188,3 +188,13 @@ def inv_sqrt(X: Matrix) -> Matrix:
 def log_sigmoid(X: Matrix) -> Matrix:
     """Element-wise log(sigmoid(X)) computed stably."""
     return -np.logaddexp(0, -X)
+
+
+def abs(X: Matrix) -> Matrix:
+    """Element-wise absolute value |X|."""
+    return np.abs(X)
+
+
+def clip(X: Matrix, a_min: float, a_max: float) -> Matrix:
+    """Element-wise clip of X to [a_min, a_max]."""
+    return np.clip(X, a_min, a_max)
