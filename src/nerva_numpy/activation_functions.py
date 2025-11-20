@@ -17,6 +17,7 @@ from nerva_numpy.matrix_operations import Matrix
 # - lowercase functions operate on real numbers
 # - uppercase functions operate on matrices
 
+
 def Relu(X: Matrix) -> Matrix:
     """Rectified linear unit activation: max(0, X)."""
     return np.maximum(0, X)
