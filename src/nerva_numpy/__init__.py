@@ -1,4 +1,4 @@
-"""nerva_numpy: Minimal neural network components built on top of PyTorch.
+"""nerva_numpy: Minimal neural network components built on top of NumPy.
 
 This package provides small, educational implementations of layers, activation
 functions, loss functions, optimizers, learning-rate schedulers, softmax
