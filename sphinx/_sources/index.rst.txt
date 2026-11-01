@@ -23,6 +23,7 @@ API reference
    nerva_numpy
    nerva_numpy.activation_functions
    nerva_numpy.datasets
+   nerva_numpy.shapes_dataset
    nerva_numpy.layers
    nerva_numpy.learning_rate
    nerva_numpy.loss_functions

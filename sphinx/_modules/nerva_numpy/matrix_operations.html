@@ -7,14 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>nerva_numpy.matrix_operations &mdash; nerva_numpy  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -43,6 +43,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/nerva_numpy.html">nerva_numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/nerva_numpy.activation_functions.html">nerva_numpy.activation_functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/nerva_numpy.datasets.html">nerva_numpy.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/nerva_numpy.shapes_dataset.html">nerva_numpy.shapes_dataset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/nerva_numpy.layers.html">nerva_numpy.layers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/nerva_numpy.learning_rate.html">nerva_numpy.learning_rate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../_autosummary/nerva_numpy.loss_functions.html">nerva_numpy.loss_functions</a></li>
@@ -84,11 +85,11 @@
 <span class="c1"># Distributed under the Boost Software License, Version 1.0.</span>
 <span class="c1"># (See accompanying file LICENSE or http://www.boost.org/LICENSE_1_0.txt)</span>
 
-<span class="sd">&quot;&quot;&quot;Matrix operations built on top of torch to support the math in the library.</span>
+<span class="sd">"""Matrix operations built on top of torch to support the math in the library.</span>
 
 <span class="sd">The functions here intentionally mirror the names in the accompanying docs.</span>
 <span class="sd">They operate on 1D/2D tensors and keep broadcasting explicit for clarity.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -102,7 +103,7 @@
 <div class="viewcode-block" id="is_vector">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.is_vector">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_vector</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if x is a 1D tensor.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Check if x is a 1D tensor."""</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span></div>
 
 
@@ -110,7 +111,7 @@
 <div class="viewcode-block" id="is_column_vector">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.is_column_vector">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_column_vector</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if x can be treated as a column vector.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Check if x can be treated as a column vector."""</span>
     <span class="k">return</span> <span class="n">is_vector</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span></div>
 
 
@@ -118,7 +119,7 @@
 <div class="viewcode-block" id="is_row_vector">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.is_row_vector">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_row_vector</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if x can be treated as a row vector.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Check if x can be treated as a row vector."""</span>
     <span class="k">return</span> <span class="n">is_vector</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="ow">or</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span></div>
 
 
@@ -126,7 +127,7 @@
 <div class="viewcode-block" id="vector_size">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.vector_size">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">vector_size</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get size along first dimension.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Get size along first dimension."""</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
 
 
@@ -134,7 +135,7 @@
 <div class="viewcode-block" id="is_square">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.is_square">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_square</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if X is a square matrix.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Check if X is a square matrix."""</span>
     <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
     <span class="k">return</span> <span class="n">m</span> <span class="o">==</span> <span class="n">n</span></div>
 
@@ -143,7 +144,7 @@
 <div class="viewcode-block" id="dot">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.dot">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">dot</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dot product of vectors x and y.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Dot product of vectors x and y."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">y</span><span class="p">))</span></div>
 
 
@@ -151,9 +152,9 @@
 <div class="viewcode-block" id="zeros">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.zeros">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns an mxn matrix with all elements equal to 0.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span></div>
 
 
@@ -161,9 +162,9 @@
 <div class="viewcode-block" id="ones">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.ones">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">ones</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns an mxn matrix with all elements equal to 1.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span></div>
 
 
@@ -171,9 +172,9 @@
 <div class="viewcode-block" id="identity">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.identity">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">identity</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns the nxn identity matrix.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span></div>
 
 
@@ -181,7 +182,7 @@
 <div class="viewcode-block" id="product">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.product">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">product</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Matrix multiplication X @ Y.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Matrix multiplication X @ Y."""</span>
     <span class="k">return</span> <span class="n">X</span> <span class="o">@</span> <span class="n">Y</span></div>
 
 
@@ -189,7 +190,7 @@
 <div class="viewcode-block" id="hadamard">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.hadamard">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">hadamard</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">Y</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise product X ⊙ Y.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise product X ⊙ Y."""</span>
     <span class="k">return</span> <span class="n">X</span> <span class="o">*</span> <span class="n">Y</span></div>
 
 
@@ -197,7 +198,7 @@
 <div class="viewcode-block" id="diag">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.diag">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">diag</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Extract diagonal of X as a vector.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Extract diagonal of X as a vector."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -205,7 +206,7 @@
 <div class="viewcode-block" id="Diag">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.Diag">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">Diag</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create diagonal matrix with x as diagonal.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Create diagonal matrix with x as diagonal."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">diagflat</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
 
@@ -213,9 +214,9 @@
 <div class="viewcode-block" id="elements_sum">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.elements_sum">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">elements_sum</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns the sum of the elements of X.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -223,7 +224,7 @@
 <div class="viewcode-block" id="column_repeat">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.column_repeat">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">column_repeat</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Repeat column vector x horizontally n times.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Repeat column vector x horizontally n times."""</span>
     <span class="k">assert</span> <span class="n">is_column_vector</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
@@ -234,7 +235,7 @@
 <div class="viewcode-block" id="row_repeat">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.row_repeat">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">row_repeat</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Repeat row vector x vertically m times.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Repeat row vector x vertically m times."""</span>
     <span class="k">assert</span> <span class="n">is_row_vector</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
@@ -245,7 +246,7 @@
 <div class="viewcode-block" id="columns_sum">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.columns_sum">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">columns_sum</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sum over columns (returns row vector).&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Sum over columns (returns row vector)."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
 
@@ -253,7 +254,7 @@
 <div class="viewcode-block" id="rows_sum">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.rows_sum">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">rows_sum</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Sum over rows (returns column vector).&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Sum over rows (returns column vector)."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 
@@ -261,9 +262,9 @@
 <div class="viewcode-block" id="columns_max">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.columns_max">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">columns_max</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns a column vector with the maximum values of each row in X.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
 
@@ -271,9 +272,9 @@
 <div class="viewcode-block" id="rows_max">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.rows_max">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">rows_max</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns a row vector with the maximum values of each column in X.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 
@@ -281,9 +282,9 @@
 <div class="viewcode-block" id="columns_mean">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.columns_mean">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">columns_mean</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns a column vector with the mean values of each row in X.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
 
 
@@ -291,9 +292,9 @@
 <div class="viewcode-block" id="rows_mean">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.rows_mean">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">rows_mean</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns a row vector with the mean values of each column in X.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 
@@ -301,7 +302,7 @@
 <div class="viewcode-block" id="apply">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.apply">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise application of function f to X.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise application of function f to X."""</span>
     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -309,7 +310,7 @@
 <div class="viewcode-block" id="exp">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.exp">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise exponential exp(X).&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise exponential exp(X)."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -317,7 +318,7 @@
 <div class="viewcode-block" id="log">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.log">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise natural logarithm log(X).&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise natural logarithm log(X)."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -325,7 +326,7 @@
 <div class="viewcode-block" id="reciprocal">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.reciprocal">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">reciprocal</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise reciprocal 1/X.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise reciprocal 1/X."""</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">X</span></div>
 
 
@@ -333,7 +334,7 @@
 <div class="viewcode-block" id="square">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.square">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise square X².&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise square X²."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -341,7 +342,7 @@
 <div class="viewcode-block" id="sqrt">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.sqrt">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise square root √X.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise square root √X."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -349,7 +350,7 @@
 <div class="viewcode-block" id="inv_sqrt">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.inv_sqrt">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">inv_sqrt</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise inverse square root X^(-1/2) with epsilon for stability.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise inverse square root X^(-1/2) with epsilon for stability."""</span>
     <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">X</span> <span class="o">+</span> <span class="n">epsilon</span><span class="p">)</span>  <span class="c1"># The epsilon is needed for numerical stability</span></div>
 
 
@@ -357,7 +358,7 @@
 <div class="viewcode-block" id="log_sigmoid">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.log_sigmoid">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">log_sigmoid</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise log(sigmoid(X)) computed stably.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise log(sigmoid(X)) computed stably."""</span>
     <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">logaddexp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -365,7 +366,7 @@
 <div class="viewcode-block" id="abs">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.abs">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise absolute value `|X|`.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise absolute value `|X|`."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span></div>
 
 
@@ -373,7 +374,7 @@
 <div class="viewcode-block" id="clip">
 <a class="viewcode-back" href="../../_autosummary/nerva_numpy.matrix_operations.html#nerva_numpy.matrix_operations.clip">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">a_min</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">a_max</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Matrix</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Element-wise clip of X to [a_min, a_max].&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Element-wise clip of X to [a_min, a_max]."""</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">a_min</span><span class="p">,</span> <span class="n">a_max</span><span class="p">)</span></div>
 
 </pre></div>
@@ -385,7 +386,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Wieger Wesselink and contributors.</p>
+    <p>&#169; Copyright 2026, Wieger Wesselink and contributors.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
