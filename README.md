@@ -67,6 +67,24 @@ pip install .
 pip install nerva-numpy
 ```
 
+`nerva-numpy` requires Python 3.11 or newer. Optional extras:
+
+```bash
+pip install "nerva-numpy[examples]"   # dependencies of the examples (scikit-learn)
+pip install "nerva-numpy[test]"       # pytest
+```
+
+#### CPU and GPU
+
+`nerva-numpy` runs on the CPU.
+
+#### Running the tests
+
+```bash
+pip install ".[test]"
+python -m pytest tests
+```
+
 ### Example: Define and Train an MLP
 
 ```python
