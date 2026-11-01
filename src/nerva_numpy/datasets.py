@@ -113,3 +113,18 @@ def create_npz_dataloaders(filename: str, batch_size: int = 1) -> Tuple[DataLoad
     train_loader = DataLoader(np.asarray(Xtrain, dtype=np.float32), Ttrain, batch_size, num_classes=num_classes)
     test_loader = DataLoader(np.asarray(Xtest, dtype=np.float32), Ttest, batch_size, num_classes=num_classes)
     return train_loader, test_loader
+
+
+def create_array_dataloaders(Xtrain: np.ndarray, Ttrain: np.ndarray, Xtest: np.ndarray, Ttest: np.ndarray,
+                             batch_size: int = 1, num_classes: int = 0) -> Tuple[DataLoader, DataLoader]:
+    """Creates data loaders for a training and a test set that are given as numpy arrays.
+
+    Xtrain and Xtest contain the examples (one per row), and Ttrain and Ttest the class indices.
+    If num_classes is 0, the number of classes is inferred from the targets.
+    """
+    Xtrain, Ttrain, Xtest, Ttest = np.asarray(Xtrain, dtype=np.float32), np.asarray(Ttrain), np.asarray(Xtest, dtype=np.float32), np.asarray(Ttest)
+    if num_classes == 0:
+        num_classes = infer_num_classes(Ttrain, Ttest)
+    train_loader = DataLoader(Xtrain, Ttrain, batch_size, num_classes=num_classes)
+    test_loader = DataLoader(Xtest, Ttest, batch_size, num_classes=num_classes)
+    return train_loader, test_loader
